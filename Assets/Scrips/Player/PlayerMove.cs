@@ -36,12 +36,12 @@ public class PlayerMove : PlayerBase
     }
     void FixedUpdate()
     {
+        Vector3 currentVelocity = _rb.linearVelocity;
         _jumptime += Time.deltaTime;
 
         if (isMove)
         {
-            Vector3 move = _rb.linearVelocity;
-            _rb.linearVelocity = new Vector3(_currentMove.x, 0f, _currentMove.y) * walkSpeed;
+            _rb.linearVelocity = new Vector3(_currentMove.x, currentVelocity.y, _currentMove.y) * walkSpeed;
         }
     }
     private void OnInputMove(InputAction.CallbackContext context)
