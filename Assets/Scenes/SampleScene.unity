@@ -153,6 +153,7 @@ Transform:
   - {fileID: 251919786}
   - {fileID: 760969942}
   - {fileID: 1367827281}
+  - {fileID: 376510916}
   m_Father: {fileID: 205339152}
   m_LocalEulerAnglesHint: {x: 60, y: 180, z: 0}
 --- !u!114 &22704670
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c594cc28d279e4abc80723172183ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anotherMirrorPos: {fileID: 1798114437}
+  spwanPoint: {fileID: 0}
 --- !u!65 &22704671
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -487,6 +488,37 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &376510915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 376510916}
+  m_Layer: 0
+  m_Name: Point (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &376510916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376510915}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.8660254, z: 0.5, w: 0}
+  m_LocalPosition: {x: 45.550655, y: 13.618785, z: -5.230275}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 22704669}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,7 +710,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653698218}
-  m_Mesh: {fileID: 4300000, guid: 087c26238d8090140943e7168f0890a5, type: 3}
+  m_Mesh: {fileID: 5006569119915696325, guid: 087c26238d8090140943e7168f0890a5, type: 3}
 --- !u!4 &653698222
 Transform:
   m_ObjectHideFlags: 0
@@ -779,7 +811,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760969941}
-  m_Mesh: {fileID: 4300000, guid: 087c26238d8090140943e7168f0890a5, type: 3}
+  m_Mesh: {fileID: 5006569119915696325, guid: 087c26238d8090140943e7168f0890a5, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1211,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367827280}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1413304120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1413304121}
+  m_Layer: 0
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1413304121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413304120}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1798114437}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735274550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,7 +1377,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798114436}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -24.23, y: 5.98, z: 14.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1322,8 +1385,9 @@ Transform:
   - {fileID: 1258767274}
   - {fileID: 653698222}
   - {fileID: 1849509424}
+  - {fileID: 1413304121}
   m_Father: {fileID: 205339152}
-  m_LocalEulerAnglesHint: {x: -60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1798114438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,7 +1400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c594cc28d279e4abc80723172183ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anotherMirrorPos: {fileID: 22704669}
+  spwanPoint: {fileID: 0}
 --- !u!65 &1798114439
 BoxCollider:
   m_ObjectHideFlags: 0
