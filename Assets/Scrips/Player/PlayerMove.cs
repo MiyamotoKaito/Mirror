@@ -13,6 +13,8 @@ public class PlayerMove : PlayerBase
     [SerializeField] private float jumpForce;
     [SerializeField] private float reCastTime;
     private float _jumptime = 0f;
+
+    [SerializeField] private Transform cameraPos;
     private bool isGround;
 
     void Awake()
