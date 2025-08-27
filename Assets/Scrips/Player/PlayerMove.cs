@@ -8,6 +8,7 @@ public class PlayerMove : PlayerBase
     [SerializeField] private float moveSpeed;
 
     [Header("Jump")]
+    [SerializeField] private float jumpForce;
     [SerializeField] private float reCastTime;
     private float jumptime = 0f;
     private bool isGround;
