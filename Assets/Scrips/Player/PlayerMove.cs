@@ -18,6 +18,20 @@ public class PlayerMove : PlayerBase
         base.BaseAwake();
     }
 
+    //イベント登録
+    private void OnEnable()
+    {
+        _playerBase.Player.Move.performed += OnInputMove;
+        _playerBase.Player.Move.canceled += OnInputMove;
+        _playerBase.Player.Jump.started += OnInputJump;
+    }
+    //イベント解除
+    private void OnDisable()
+    {
+        _playerBase.Player.Move.performed += OnInputMove;
+        _playerBase.Player.Move.canceled += OnInputMove;
+        _playerBase.Player.Jump.started += OnInputJump;
+    }
     void FixedUpdate()
     {
         jumptime += Time.deltaTime;
