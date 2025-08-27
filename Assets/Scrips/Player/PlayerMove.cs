@@ -6,6 +6,8 @@ public class PlayerMove : PlayerBase
 {
     [Header("Move")]
     [SerializeField] private float walkSpeed;
+    private Vector2 _currentMove;
+    private bool isMove;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
@@ -36,14 +38,28 @@ public class PlayerMove : PlayerBase
     {
         jumptime += Time.deltaTime;
 
-        //移動処理
-        if (_playerBase.Player.Move.triggered)
+        if (isMove)
         {
-            Vector2 move = _playerBase.Player.Move.ReadValue<Vector2>();
-            _rb.linearVelocity = new Vector3(move.x, 0f, move.y) * walkSpeed;
+            Vector3 move = _rb.linearVelocity;
+            _rb.linearVelocity = new Vector3(_currentMove.x, 0f, _currentMove.y) * walkSpeed;
         }
-        //ジャンプ処理
-        else if (_playerBase.Player.Jump.triggered && jumptime > reCastTime)
+    }
+    private void OnInputMove(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _currentMove = context.ReadValue<Vector2>();
+            isMove = true;
+        }
+        else if (context.canceled)
+        {
+            _currentMove = Vector2.zero;
+            isMove = false;
+        }
+    }
+    private void OnInputJump(InputAction.CallbackContext context)
+    {
+        if (context.started && jumptime > reCastTime)
         {
             _rb.linearVelocity = new Vector3(0f, jumpForce, 0f);
             jumptime = 0f;
