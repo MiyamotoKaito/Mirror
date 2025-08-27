@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerMove : PlayerBase
 {
     [Header("Move")]
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float walkSpeed;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
@@ -26,7 +26,7 @@ public class PlayerMove : PlayerBase
         if (_playerBase.Player.Move.triggered)
         {
             Vector2 move = _playerBase.Player.Move.ReadValue<Vector2>();
-            _rb.linearVelocity = new Vector3(move.x, 0f, move.y) * moveSpeed;
+            _rb.linearVelocity = new Vector3(move.x, 0f, move.y) * walkSpeed;
         }
         //ジャンプ処理
         else if (_playerBase.Player.Jump.triggered && jumptime > reCastTime)
