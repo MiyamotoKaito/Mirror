@@ -38,12 +38,20 @@ public class PlayerMove : PlayerBase
     }
     void FixedUpdate()
     {
-        Vector3 currentVelocity = _rb.linearVelocity;
         _jumptime += Time.deltaTime;
 
+        Vector3 foward = cameraPos.forward;
+        foward.y = 0f;
+
+        if (cameraPos.forward != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(foward);
+        }
         if (isMove)
         {
-            _rb.linearVelocity = new Vector3(_currentMove.x, currentVelocity.y, _currentMove.y) * walkSpeed;
+            Vector3 orientation = cameraPos.forward * _currentMove.y + cameraPos.right * _currentMove.x;
+            Vector3 currentVelocity = orientation.normalized * walkSpeed;
+            _rb.linearVelocity = new Vector3(currentVelocity.x, _rb.linearVelocity.y, currentVelocity.z);
         }
     }
     private void OnInputMove(InputAction.CallbackContext context)
