@@ -12,7 +12,7 @@ public class PlayerMove : PlayerBase
     [Header("Jump")]
     [SerializeField] private float jumpForce;
     [SerializeField] private float reCastTime;
-    private float jumptime = 0f;
+    private float _jumptime = 0f;
     private bool isGround;
 
     void Awake()
@@ -36,7 +36,7 @@ public class PlayerMove : PlayerBase
     }
     void FixedUpdate()
     {
-        jumptime += Time.deltaTime;
+        _jumptime += Time.deltaTime;
 
         if (isMove)
         {
@@ -59,10 +59,10 @@ public class PlayerMove : PlayerBase
     }
     private void OnInputJump(InputAction.CallbackContext context)
     {
-        if (context.started && jumptime > reCastTime)
+        if (context.started && _jumptime > reCastTime)
         {
             _rb.linearVelocity = new Vector3(0f, jumpForce, 0f);
-            jumptime = 0f;
+            _jumptime = 0f;
         }
     }
 }
