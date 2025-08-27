@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MirrorWarp : MonoBehaviour
 {
-    [SerializeField] private Transform anotherMirrorPos;
+    [SerializeField,Tooltip("ワープ先のポジション(相手の鏡)")] private Transform spwanPoint; 
     private bool inMirror;
 
     private void OnTriggerEnter(Collider other)
@@ -11,10 +11,7 @@ public class MirrorWarp : MonoBehaviour
         if (inMirror == false)
         {
             Debug.Log("入ってきた");
-            var x = anotherMirrorPos.position.x;
-            var y = anotherMirrorPos.position.y;
-            var z = anotherMirrorPos.position.z + 2f;
-            other.transform.position = new Vector3(x, y, z);
+            other.transform.position = spwanPoint.position;
             inMirror = true;
         }
     }
