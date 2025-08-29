@@ -1134,6 +1134,7 @@ GameObject:
   - component: {fileID: 696614014}
   - component: {fileID: 696614013}
   - component: {fileID: 696614012}
+  - component: {fileID: 696614016}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Swicth
@@ -1230,6 +1231,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &696614016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696614011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa0cb840efc5fc84696201bb9da0491e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 219355875}
+        m_TargetAssemblyTypeName: DoorOpen, Assembly-CSharp
+        m_MethodName: OpenTheDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &760969941
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,7 +2914,6 @@ GameObject:
   - component: {fileID: 1849910476}
   - component: {fileID: 1849910475}
   - component: {fileID: 1849910474}
-  - component: {fileID: 1849910482}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3070,33 +3097,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1849910482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849910473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa0cb840efc5fc84696201bb9da0491e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 219355875}
-        m_TargetAssemblyTypeName: DoorOpen, Assembly-CSharp
-        m_MethodName: OpenTheDoor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!43 &2016841287
 Mesh:
   m_ObjectHideFlags: 0
