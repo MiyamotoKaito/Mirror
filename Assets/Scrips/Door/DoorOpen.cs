@@ -8,14 +8,9 @@ public class DoorOpen : MonoBehaviour
 
     public void OpenTheDoor()
     {
-        right.DOMoveX(-2, 1f);
-        left.DOMoveX(-2, 1f);
-
-        Tween r = right.DOMoveZ(-2, 1f);
-        Tween l = left.DOMoveZ(2, 1f);
-
-        r.SetDelay(1f);
-        l.SetDelay(1f);
-
+        right.DOLocalMove(new Vector3(-0.2f, 0, 0), 1f).SetRelative(true)
+            .OnComplete(() => { right.DOLocalMove(new Vector3(0, 0, -2), 1f).SetRelative(true); });
+        left.DOLocalMove(new Vector3(-0.2f, 0, 0), 1f).SetRelative(true)
+            .OnComplete(() => { left.DOLocalMove(new Vector3(0, 0, 2), 1f).SetRelative(true); });
     }
 }
