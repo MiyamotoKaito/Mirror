@@ -1,16 +1,47 @@
+﻿using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
-public class DoorSwitch : MonoBehaviour
+public class DoorSwitch : PlayerBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public UnityEvent Action;
+    private bool isTrigger;
+
+    private void Awake()
     {
-        
+        base.BaseAwake();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        _playerBase.Player.Interact.started += OnInputInteract;
+    }
+
+    private void OnDisable()
+    {
+        _playerBase.Player.Interact.started -= OnInputInteract;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Swicth"))
+        {
+            isTrigger = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Swicth"))
+        {
+            isTrigger = false;
+        }
+    }
+    private void OnInputInteract(InputAction.CallbackContext context)
+    {
+        if (context.started && isTrigger)
+        {
+            Action.Invoke();
+        }
     }
 }
