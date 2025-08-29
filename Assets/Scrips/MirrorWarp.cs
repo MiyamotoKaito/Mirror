@@ -1,24 +1,14 @@
-using Unity.VisualScripting;
+ï»¿using Unity.VisualScripting;
 using UnityEngine;
 
 public class MirrorWarp : MonoBehaviour
 {
-    [SerializeField,Tooltip("ƒ[ƒvæ‚Ìƒ|ƒWƒVƒ‡ƒ“(‘Šè‚Ì‹¾)")] private Transform spwanPoint; 
-    private bool inMirror;
+    [SerializeField, Tooltip("ãƒ¯ãƒ¼ãƒ—å…ˆã®ãƒã‚¸ã‚·ãƒ§ãƒ³(ç›¸æ‰‹ã®é¡)")] private Transform spwanPoint;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (inMirror == false)
-        {
-            Debug.Log("“ü‚Á‚Ä‚«‚½");
-            other.transform.position = spwanPoint.position;
-            inMirror = true;
-        }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        inMirror = false;
-        Debug.Log("”²‚¯o‚µ‚½");
+        Debug.Log("å…¥ã£ã¦ããŸ");
+        other.transform.position = spwanPoint.position;
     }
 }
