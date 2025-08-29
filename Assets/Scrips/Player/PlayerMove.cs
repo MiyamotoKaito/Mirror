@@ -17,8 +17,11 @@ public class PlayerMove : PlayerBase
     [SerializeField] private Transform cameraPos;
     private bool isGround;
 
+    private Rigidbody _rb;
+
     void Awake()
     {
+        _rb = GetComponent<Rigidbody>();
         base.BaseAwake();
     }
 
