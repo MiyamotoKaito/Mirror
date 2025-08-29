@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 
+/// <summary>
+/// ドアを開けるためのクラスDoorSwitchクラスのイベントで呼び出す
+/// </summary>
 public class DoorOpen : MonoBehaviour
 {
     [SerializeField] private Transform right;
