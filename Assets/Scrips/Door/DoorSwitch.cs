@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// switchのオブジェクトにアタッチして対応するドアのアニメーションを起動する
+/// </summary>
 public class DoorSwitch : PlayerBase
 {
     public UnityEvent Action;
