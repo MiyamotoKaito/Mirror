@@ -25,14 +25,14 @@ public class DoorSwitch : PlayerBase
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Swicth"))
+        if (other.CompareTag("Player"))
         {
             isTrigger = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Swicth"))
+        if (other.CompareTag("Player"))
         {
             isTrigger = false;
         }
