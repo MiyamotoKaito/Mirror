@@ -190,72 +190,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 2.94, z: 0.3}
   m_Center: {x: 0, y: 1.26, z: 0}
---- !u!1001 &184988481
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.6100006
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.6100006
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 15.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495215245131427201, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-      propertyPath: m_Name
-      value: Sci Fi Gates (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2324153955180500977, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
 --- !u!1 &205339151
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,8 +454,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0871558, y: 0, z: 0, w: 0.9961948}
-  m_LocalPosition: {x: 8.259979, y: 1.92477, z: 11.466717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -602,7 +536,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  CustomBlends: {fileID: 0}
+  CustomBlends: {fileID: 11400000, guid: 3b9ecde6086cf5248a4709cb283b78f9, type: 2}
 --- !u!1 &376510915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,7 +1409,7 @@ GameObject:
   - component: {fileID: 858014650}
   - component: {fileID: 858014651}
   m_Layer: 0
-  m_Name: CinemachineCamera (1)
+  m_Name: DoorCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2112,7 +2046,7 @@ Transform:
   m_GameObject: {fileID: 900782112}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.3, y: 3.92, z: 15.8}
+  m_LocalPosition: {x: 18.25, y: 3.92, z: 15.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2126,6 +2060,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3462176200887862524, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
+      propertyPath: doorCamera
+      value: 
+      objectReference: {fileID: 858014649}
     - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.6100006
@@ -2136,7 +2074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.68
+      value: 19.63
       objectReference: {fileID: 0}
     - target: {fileID: 3495215245131067809, guid: 51cd74240079bb448981778a0314f3ca, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3433,5 +3371,4 @@ SceneRoots:
   - {fileID: 1699154982}
   - {fileID: 1849910481}
   - {fileID: 940532244}
-  - {fileID: 184988481}
   - {fileID: 900782118}
