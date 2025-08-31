@@ -2,43 +2,14 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpecularReflection : MonoBehaviour
+public class SpecularReflection : MirrorController
 {
-    [Tooltip("playerのカメラ"), SerializeField]
-    private Camera playerCamera;
-    [Tooltip("反射先を写すカメラ"), SerializeField]
-    private Camera reflectionCamera;
-
-    public static event Action OnMirorUpdate;
-
-    private void OnEnable()
-    {
-        OnMirorUpdate += UpdateMirror;
-    }
-    private void OnDisable()
-    {
-        OnMirorUpdate -= UpdateMirror;
-    }
-    private void Start()
-    {
-        var rCamPos = reflectionCamera.transform.position;
-        var pCamPosY = playerCamera.transform.localPosition.y ;
-        reflectionCamera.transform.position = new Vector3(rCamPos.x, pCamPosY - 0.2f, rCamPos.z);
-    }
-    private void Update()
-    {
-        if (OnMirorUpdate != null)
-        {
-            UpdateMirror();
-        }
-    }
-
-    private void UpdateMirror()
+    public override void UpdateMirror()
     {
         //反射ベクトルの計算
         #region
         //カメラから鏡面への方向ベクトル
-        var incident = (reflectionCamera.transform.position - playerCamera.transform.position);
+        var incident = playerCamera.transform.forward;
 
         //鏡面からの法線ベクトル
         var normal = transform.forward;
