@@ -4,9 +4,12 @@ using UnityEngine;
 public class SpecularReflection : MonoBehaviour
 {
     [Tooltip("playerのカメラ"), SerializeField]
-    private Transform playerCamera;
+    private Camera playerCamera;
     [Tooltip("反射先を写すカメラ"), SerializeField]
-    private Transform reflectionCamera;
+    private Camera reflectionCamera;
+
+    [SerializeField]
+    private float size;
 
     public static event Action OnMirorUpdate;
 
@@ -31,7 +34,7 @@ public class SpecularReflection : MonoBehaviour
         //反射ベクトルの計算
         #region
         //カメラから鏡面への方向ベクトル
-        var incident =(reflectionCamera.position - playerCamera.position);
+        var incident = (reflectionCamera.transform.position - playerCamera.transform.position);
 
         //鏡面からの法線ベクトル
         var normal = transform.forward;
@@ -42,6 +45,12 @@ public class SpecularReflection : MonoBehaviour
         #endregion
 
         //反射ベクトルの方向に鏡面のカメラを向かせる
-        reflectionCamera.LookAt(reflectionCamera.position + reflection);
+        reflectionCamera.transform.LookAt(reflectionCamera.transform.position + reflection);
+
+        //カメラと鏡面との距離(焦点距離)
+        var dictance = Vector3.Distance(transform.position, playerCamera.transform.position);
+
+        //鏡のスケール感を統一
+        reflectionCamera.fieldOfView = playerCamera.fieldOfView;
     }
 }
