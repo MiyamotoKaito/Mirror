@@ -21,6 +21,7 @@ public class PlayerMove : PlayerBase
 
     void Awake()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         _rb = GetComponent<Rigidbody>();
         base.BaseAwake();
     }
