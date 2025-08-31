@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Main Camera Custom Blends
   m_EditorClassIdentifier: 
   CustomBlends:
-  - From: 
-    To: 
+  - From: PlayerCamera
+    To: DoorCamera
     Blend:
-      Style: 0
-      Time: 0
+      Style: 1
+      Time: 2
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
