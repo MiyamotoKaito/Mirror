@@ -759,7 +759,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.33, y: 2.882, z: -9.68}
+  m_LocalPosition: {x: -2.33, y: 2.682, z: -9.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 533404307}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3529,7 +3529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Offset: {x: 0, y: 1, z: 0}
+  Offset: {x: 0, y: 0.8, z: 0.33}
   ApplyAfter: 1
   PreserveComposition: 0
 --- !u!114 &1699154986
@@ -3791,8 +3791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 4
-  jumpForce: 4
-  reCastTime: 1
+  jumpForce: 6
   cameraPos: {fileID: 330585546}
 --- !u!114 &1849910475
 MonoBehaviour:
@@ -3844,7 +3843,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849910473}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 4
   m_Drag: 2
   m_AngularDrag: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4335,11 +4334,11 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 1699154982}
-  - {fileID: 832575519}
+  - {fileID: 1849910481}
   - {fileID: 511238906}
   - {fileID: 205339152}
+  - {fileID: 1678760157}
   - {fileID: 533404312}
   - {fileID: 1567984459}
   - {fileID: 696614015}
-  - {fileID: 1849910481}
-  - {fileID: 1678760157}
+  - {fileID: 832575519}
