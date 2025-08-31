@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpecularReflection : MonoBehaviour
@@ -20,6 +21,9 @@ public class SpecularReflection : MonoBehaviour
     }
     private void Start()
     {
+        var rCamPos = reflectionCamera.transform.position;
+        var pCamPosY = playerCamera.transform.localPosition.y ;
+        reflectionCamera.transform.position = new Vector3(rCamPos.x, pCamPosY - 0.2f, rCamPos.z);
     }
     private void Update()
     {
@@ -52,5 +56,6 @@ public class SpecularReflection : MonoBehaviour
 
         //鏡のスケール感を統一
         reflectionCamera.fieldOfView = playerCamera.fieldOfView;
+        reflectionCamera.nearClipPlane = playerCamera.nearClipPlane;
     }
 }
