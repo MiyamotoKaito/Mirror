@@ -11,8 +11,6 @@ public class PlayerMove : PlayerBase
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
-    [SerializeField] private float reCastTime;
-    private float _jumptime = 0f;
 
     [SerializeField] private Transform cameraPos;
     private bool isGround;
@@ -42,8 +40,6 @@ public class PlayerMove : PlayerBase
     }
     void FixedUpdate()
     {
-        _jumptime += Time.deltaTime;
-
         Vector3 foward = cameraPos.forward;
         foward.y = 0f;
 
@@ -73,10 +69,24 @@ public class PlayerMove : PlayerBase
     }
     private void OnInputJump(InputAction.CallbackContext context)
     {
-        if (context.started && _jumptime > reCastTime)
+        if (context.started && isGround)
         {
             _rb.linearVelocity = new Vector3(0f, jumpForce, 0f);
-            _jumptime = 0f;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            isGround = true;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            isGround = false;
         }
     }
 }
