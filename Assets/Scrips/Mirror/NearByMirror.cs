@@ -1,16 +1,27 @@
+﻿using UnityEditor.AssetImporters;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class NearByMirror : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject mirror;
+    [SerializeField] private RenderTexture mirrorTex;
 
-    // Update is called once per frame
-    void Update()
+    private RenderTexture sourceTex;
+    private void Awake()
     {
-        
+        sourceTex = mirrorTex;
+        mirror.SetActive(false);
+        mirrorTex.Release();//メモリ解放
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        mirror.SetActive(true);
+        Graphics.Blit(sourceTex, mirrorTex);//書き込み
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        mirror.SetActive(false);
+        mirrorTex.Release();
     }
 }
