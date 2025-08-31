@@ -22,7 +22,7 @@ public abstract class MirrorController : MonoBehaviour
     {
         var rCamPos = reflectionCamera.transform.position;
         var pCamPosY = playerCamera.transform.localPosition.y;
-        reflectionCamera.transform.position = new Vector3(rCamPos.x, pCamPosY - 0.2f, rCamPos.z);
+        reflectionCamera.transform.position = new Vector3(rCamPos.x, pCamPosY, rCamPos.z);
     }
     private void Update()
     {
