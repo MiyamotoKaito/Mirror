@@ -28,13 +28,13 @@ public class DoorOpen : MonoBehaviour
             doorCamera.SetActive(true);
 
 
-            Tween r = right.DOLocalMove(new Vector3(-0.2f, 0, 0), 1f).SetRelative(true)
+            Tween r = right.DOLocalMove(new Vector3(0.2f, 0, 0), 1f).SetRelative(true)
                  .OnComplete(() =>
                  {
                      right.DOLocalMove(new Vector3(0, 0, -2), 1f).SetRelative(true)
                  .OnComplete(() => { doorCamera.SetActive(false); });
                  });
-            Tween l = left.DOLocalMove(new Vector3(-0.2f, 0, 0), 1f).SetRelative(true)
+            Tween l = left.DOLocalMove(new Vector3(0.2f, 0, 0), 1f).SetRelative(true)
                  .OnComplete(() =>
                  {
                      left.DOLocalMove(new Vector3(0, 0, 2), 1f).SetRelative(true)
