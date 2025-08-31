@@ -1,23 +1,13 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
-using UnityEditor;
-using UnityEditor.XR;
 using UnityEngine;
-using UnityEngine.Accessibility;
-using UnityEngine.Rendering;
 
-[ExecuteAlways]//playmodeでなくても作動する
+[ExecuteAlways]
 public class SpecularReflection : MonoBehaviour
 {
     [Tooltip("playerのカメラ"), SerializeField]
-    private Camera targetCamera;
+    private Camera playerCamera;
     [Tooltip("反射先を写すカメラ"), SerializeField]
     private Camera reflectionCamera;
-
-    [SerializeField] private Transform specular;
-    [SerializeField] private Transform frame;
-    [SerializeField] private float size;
-    [SerializeField] private bool enabledTarget;
 
     public static event Action OnMirorUpdate;
 
@@ -31,34 +21,27 @@ public class SpecularReflection : MonoBehaviour
     }
     private void Start()
     {
-        if (targetCamera == null)
-        {
-            targetCamera = FindFirstObjectByType<Camera>();
-        }
-        if (reflectionCamera == null)
-        {
-            reflectionCamera = GetComponentInChildren<Camera>();
-        }
     }
-    private void Reset()
-    {
-        reflectionCamera = GetComponentInChildren<Camera>();
-    }
-
     private void Update()
     {
-        OnMirorUpdate?.Invoke();
+        UpdateMirror();
     }
 
     private void UpdateMirror()
     {
+        //反射ベクトルの計算
+        #region
         //カメラから鏡面への方向ベクトル
-        var incident = transform.position - targetCamera.transform.position;
+        var incident = (reflectionCamera.transform.position - playerCamera.transform.position);
 
         //鏡面からの法線ベクトル
-        var normal = transform.forward;
+        var normal = reflectionCamera.transform.forward;
 
         //カメラの反射ベクトル
-        var reflection = incident + 2 * (Vector3.Dot(-incident, normal)) * normal;
+        var reflection = (incident + 2 * (Vector3.Dot(-incident, normal)) * normal);
+        #endregion
+
+        //反射ベクトルの方向に鏡面のカメラを向かせる
+        reflectionCamera.transform.LookAt(reflection);
     }
 }
