@@ -32,13 +32,19 @@ public class DoorOpen : MonoBehaviour
                  .OnComplete(() =>
                  {
                      right.DOLocalMove(new Vector3(0, 0, -2), 1f).SetRelative(true)
-                 .OnComplete(() => { doorCamera.SetActive(false); });
+                    .OnComplete(() =>
+                    {
+                        doorCamera.SetActive(false);
+                    });
                  });
             Tween l = left.DOLocalMove(new Vector3(0.2f, 0, 0), 1f).SetRelative(true)
                  .OnComplete(() =>
                  {
                      left.DOLocalMove(new Vector3(0, 0, 2), 1f).SetRelative(true)
-                 .OnComplete(() => { playerCam.SetActive(true); });
+                    .OnComplete(() =>
+                    {
+                        playerCam.SetActive(true);
+                    });
                  });
 
             r.SetDelay(2f);
