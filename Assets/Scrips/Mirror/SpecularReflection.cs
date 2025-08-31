@@ -8,9 +8,6 @@ public class SpecularReflection : MonoBehaviour
     [Tooltip("反射先を写すカメラ"), SerializeField]
     private Camera reflectionCamera;
 
-    [SerializeField]
-    private float size;
-
     public static event Action OnMirorUpdate;
 
     private void OnEnable()
@@ -26,7 +23,10 @@ public class SpecularReflection : MonoBehaviour
     }
     private void Update()
     {
-        UpdateMirror();
+        if (OnMirorUpdate != null)
+        {
+            UpdateMirror();
+        }
     }
 
     private void UpdateMirror()
