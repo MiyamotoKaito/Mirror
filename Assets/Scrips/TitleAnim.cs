@@ -1,39 +1,47 @@
-﻿using DG.Tweening;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
-
 public class TitleAnim : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> spotLights;
-    [SerializeField] private Canvas canvas;
-    private AudioSource _audioSource;
+    [SerializeField] private List<SelectObjects> objs;
+    [SerializeField] private CinemachineCamera selectView;
 
+    [SerializeField] private AudioSource audioSource;
+
+    [System.Serializable]
+    public class SelectObjects
+    {
+        [SerializeField] private GameObject spotLights;
+        [SerializeField] private CinemachineCamera cameras;
+
+        public GameObject SpotLights { get { return spotLights; } }
+        public CinemachineCamera Camera { get { return cameras; } }
+    }
     private void Awake()
     {
-        _audioSource = GetComponent<AudioSource>();
-        foreach (var light in spotLights)
+        foreach (SelectObjects obj in objs)
         {
-            light.SetActive(false);
+            obj.Camera.gameObject.SetActive(false);
+            obj.SpotLights.SetActive(false);
         }
     }
-    void Start()
+    public void Light()
     {
-        
-    }
-
-    void Update()
-    {
-
-    }
-
-    private IEnumerator LightUP()
-    {
-        for (int i = 0; i < spotLights.Count; i++)
+        if (selectView.gameObject.activeSelf)
         {
-            spotLights[i].SetActive(true);
-            AudioManager.Instance.PlaySE("点灯", _audioSource);
-           yield return new WaitForSeconds(0.5f);
+            StartCoroutine(LightUp());
+        }
+    }
+    private IEnumerator LightUp()
+    {
+        yield return new WaitForSeconds(2);
+        foreach (SelectObjects obj in objs)
+        {
+            obj.Camera.gameObject.SetActive(true);
+            obj.SpotLights.SetActive(true);
+            AudioManager.Instance.PlaySE("点灯", audioSource);
+            yield return new WaitForSeconds(1f);
         }
     }
 }
