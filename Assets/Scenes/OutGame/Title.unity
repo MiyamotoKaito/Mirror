@@ -509,6 +509,7 @@ GameObject:
   - component: {fileID: 266802727}
   - component: {fileID: 266802726}
   - component: {fileID: 266802728}
+  - component: {fileID: 266802729}
   m_Layer: 0
   m_Name: SelectCam
   m_TagString: Untagged
@@ -658,6 +659,14 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 11400000, guid: 5d74d8f61eb329b4cbbeff380ceb6f27, type: 2}
+--- !u!81 &266802729
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266802723}
+  m_Enabled: 1
 --- !u!1 &267355389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +1040,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 43.1
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -1059,7 +1068,7 @@ Transform:
   m_GameObject: {fileID: 335095094}
   serializedVersion: 2
   m_LocalRotation: {x: -0.12940958, y: -0.017037088, z: 0.12940949, w: -0.98296297}
-  m_LocalPosition: {x: 0.0787667, y: 1.6515496, z: -18.818}
+  m_LocalPosition: {x: 0.0787667, y: 1.593, z: -18.828}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1429,7 +1438,7 @@ GameObject:
   - component: {fileID: 464740520}
   - component: {fileID: 464740519}
   m_Layer: 0
-  m_Name: Spot Light (2)
+  m_Name: RightLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1549,12 +1558,12 @@ GameObject:
   - component: {fileID: 606592236}
   - component: {fileID: 606592235}
   m_Layer: 0
-  m_Name: CinemachineCamera (1)
+  m_Name: SenterCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &606592235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,8 +1615,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606592234}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0.517, y: 1.854, z: 1.022}
+  m_LocalRotation: {x: 0.08715578, y: -0, z: -0, w: 0.9961947}
+  m_LocalPosition: {x: 0.51699996, y: 1.854, z: 1.0219998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1660,6 +1669,7 @@ GameObject:
   - component: {fileID: 860847289}
   - component: {fileID: 860847288}
   - component: {fileID: 860847290}
+  - component: {fileID: 860847292}
   - component: {fileID: 860847291}
   m_Layer: 0
   m_Name: TitleManager
@@ -1718,6 +1728,21 @@ MonoBehaviour:
   mainCam: {fileID: 92273085}
   selectCam: {fileID: 266802727}
   showCam: {fileID: 1131091737}
+  Action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 860847292}
+        m_TargetAssemblyTypeName: TitleAnim, Assembly-CSharp
+        m_MethodName: Light
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &860847291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,6 +1757,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 92273085}
   reflectionCamera: {fileID: 1131091737}
+--- !u!114 &860847292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860847287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af4800951f669044ebb58a9fdca6a409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objs:
+  - spotLights: {fileID: 1048597954}
+    cameras: {fileID: 2142741501}
+  - spotLights: {fileID: 464740517}
+    cameras: {fileID: 1332320671}
+  - spotLights: {fileID: 1571780134}
+    cameras: {fileID: 606592235}
+  selectView: {fileID: 1496439833}
+  audioSource: {fileID: 2081054193}
 --- !u!1 &902854135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,7 +2066,7 @@ GameObject:
   - component: {fileID: 1048597957}
   - component: {fileID: 1048597956}
   m_Layer: 0
-  m_Name: Spot Light (1)
+  m_Name: LeftLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2958,7 +3004,8 @@ Transform:
   m_LocalPosition: {x: 0.249, y: 0.94, z: -3.166}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1496439832}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -20, y: 0, z: 0}
 --- !u!1 &1189994405
@@ -3180,12 +3227,12 @@ GameObject:
   - component: {fileID: 1332320672}
   - component: {fileID: 1332320671}
   m_Layer: 0
-  m_Name: CinemachineCamera (5)
+  m_Name: RightCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1332320671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4062,11 +4109,11 @@ Transform:
   m_GameObject: {fileID: 1496439831}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.249, y: 1.687, z: -3.166}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1131091739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1496439833
 MonoBehaviour:
@@ -4288,7 +4335,7 @@ GameObject:
   - component: {fileID: 1571780137}
   - component: {fileID: 1571780136}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: SenterLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5670,6 +5717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2081054192}
   - component: {fileID: 2081054191}
+  - component: {fileID: 2081054193}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -5689,7 +5737,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581d8401c1c001944bc0a265989c7ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seList: []
+  seList:
+  - Name: "\u70B9\u706F"
+    Clip: {fileID: 8300000, guid: 2bed0ba1e53eab94d940b40886c0e072, type: 3}
   bgmList: []
 --- !u!4 &2081054192
 Transform:
@@ -5706,6 +5756,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2081054193
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081054190}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2142741500
 GameObject:
   m_ObjectHideFlags: 0
@@ -5717,12 +5864,12 @@ GameObject:
   - component: {fileID: 2142741502}
   - component: {fileID: 2142741501}
   m_Layer: 0
-  m_Name: CinemachineCamera (4)
+  m_Name: LeftCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2142741501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5787,7 +5934,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 92273086}
   - {fileID: 266802725}
-  - {fileID: 1496439832}
   - {fileID: 1131091739}
   - {fileID: 860847289}
   - {fileID: 2081054192}
