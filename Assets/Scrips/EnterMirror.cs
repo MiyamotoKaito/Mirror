@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using DG.Tweening;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class SwicthMirror : PlayerBase
@@ -13,6 +13,8 @@ public class SwicthMirror : PlayerBase
     [SerializeField] private Camera mainCam;
     [SerializeField] private Camera selectCam;
     [SerializeField] private Camera showCam;
+
+    public UnityEvent Action;
 
     private void Awake()
     {
@@ -58,5 +60,6 @@ public class SwicthMirror : PlayerBase
 
         yield return null;
         selectView.gameObject.SetActive(true);
+        Action.Invoke();
     }
 }
