@@ -10,14 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36baaa8bdcb9d8b49b9199833965d2c3, type: 3}
-  m_Name: Main Camera Custom Blends
+  m_Name: FirstCam Blend
   m_EditorClassIdentifier: 
   CustomBlends:
-  - From: PlayerCamera
-    To: DoorCamera
+  - From: TitleCam
+    To: moveCam
     Blend:
       Style: 1
-      Time: 2
+      Time: 1
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - From: moveCam
+    To: MirrorCam
+    Blend:
+      Style: 1
+      Time: 1
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
