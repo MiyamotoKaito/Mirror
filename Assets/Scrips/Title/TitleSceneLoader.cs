@@ -29,10 +29,11 @@ public class TitleSceneLoader : PlayerBase
     private void OnDisable()
     {
         _playerBase.Player.Attack.started -= OnInputEnterScene;
+        base.BaseOnDisable();
     }
     private void OnInputEnterScene(InputAction.CallbackContext context)
     {
-        if (context.started )
+        if (context.started)
         {
             foreach (Scene scene in scenes)
             {

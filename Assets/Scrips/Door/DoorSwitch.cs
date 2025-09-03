@@ -24,6 +24,7 @@ public class DoorSwitch : PlayerBase
     private void OnDisable()
     {
         _playerBase.Player.Interact.started -= OnInputInteract;
+        base.BaseOnDisable();
     }
 
     private void OnTriggerEnter(Collider other)

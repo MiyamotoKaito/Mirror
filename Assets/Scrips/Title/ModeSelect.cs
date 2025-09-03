@@ -22,7 +22,7 @@ public class ModeSelect : PlayerBase
     {
         _playerBase.Player.Right.started -= OnInputRightCam;
         _playerBase.Player.Left.started -= OnInputLeftCam;
-        _playerBase.Player.Disable();
+        base.BaseOnDisable();
     }
     private void OnInputRightCam(InputAction.CallbackContext context)
     {
@@ -53,7 +53,7 @@ public class ModeSelect : PlayerBase
             //範囲外に出ようとしたら最初戻す
             if (cameraCount <= -1)
             {
-                cameraCount = Cams.Count -1;
+                cameraCount = Cams.Count - 1;
             }
 
             //次のカメラの優先度を上げる

@@ -36,6 +36,7 @@ public class PlayerMove : PlayerBase
         _playerBase.Player.Move.performed -= OnInputMove;
         _playerBase.Player.Move.canceled -= OnInputMove;
         _playerBase.Player.Jump.started -= OnInputJump;
+        base.BaseOnDisable();
     }
     void FixedUpdate()
     {

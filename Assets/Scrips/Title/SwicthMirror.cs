@@ -32,6 +32,7 @@ public class SwicthMirror : PlayerBase
     private void OnDisable()
     {
         _playerBase.Player.Attack.started -= OnInputEnterMirror;
+        base.BaseOnDisable();
     }
 
     private void OnInputEnterMirror(InputAction.CallbackContext context)
@@ -56,7 +57,7 @@ public class SwicthMirror : PlayerBase
         mainCam.gameObject.SetActive(false);
         selectCam.gameObject.SetActive(true);
 
-        yield return null;;
+        yield return null; ;
         Action.Invoke();
     }
 }
