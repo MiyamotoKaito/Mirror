@@ -33,9 +33,9 @@ public class PlayerMove : PlayerBase
     //イベント解除
     private void OnDisable()
     {
-        _playerBase.Player.Move.performed += OnInputMove;
-        _playerBase.Player.Move.canceled += OnInputMove;
-        _playerBase.Player.Jump.started += OnInputJump;
+        _playerBase.Player.Move.performed -= OnInputMove;
+        _playerBase.Player.Move.canceled -= OnInputMove;
+        _playerBase.Player.Jump.started -= OnInputJump;
     }
     void FixedUpdate()
     {
