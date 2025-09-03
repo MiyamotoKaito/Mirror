@@ -9,7 +9,6 @@ public class SwicthMirror : PlayerBase
     [SerializeField] private CinemachineCamera titleCam;
     [SerializeField] private CinemachineCamera moveCam;
     [SerializeField] private CinemachineCamera mirrorCam;
-    [SerializeField] private CinemachineCamera selectView;
     [SerializeField] private Camera mainCam;
     [SerializeField] private Camera selectCam;
     [SerializeField] private Camera showCam;
@@ -19,7 +18,6 @@ public class SwicthMirror : PlayerBase
     private void Awake()
     {
         base.BaseAwake();
-        selectView.gameObject.SetActive(false);
         titleCam.gameObject.SetActive(true);
         selectCam.gameObject.SetActive(false);
         moveCam.gameObject.SetActive(false);
@@ -33,7 +31,7 @@ public class SwicthMirror : PlayerBase
 
     private void OnDisable()
     {
-        _playerBase.Player.Attack.started += OnInputEnterMirror;
+        _playerBase.Player.Attack.started -= OnInputEnterMirror;
     }
 
     private void OnInputEnterMirror(InputAction.CallbackContext context)
@@ -58,8 +56,7 @@ public class SwicthMirror : PlayerBase
         mainCam.gameObject.SetActive(false);
         selectCam.gameObject.SetActive(true);
 
-        yield return null;
-        selectView.gameObject.SetActive(true);
+        yield return null;;
         Action.Invoke();
     }
 }

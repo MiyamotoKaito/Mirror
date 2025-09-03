@@ -6,8 +6,10 @@ public class TitleAnim : MonoBehaviour
 {
     [SerializeField] private List<SelectObjects> objs;
     [SerializeField] private CinemachineCamera selectView;
+    [SerializeField] private GameObject modeSelect;
 
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private GameObject titleManager;
 
     [System.Serializable]
     public class SelectObjects
@@ -20,6 +22,8 @@ public class TitleAnim : MonoBehaviour
     }
     private void Awake()
     {
+        selectView.gameObject.SetActive(false);
+        modeSelect.SetActive(false);
         foreach (SelectObjects obj in objs)
         {
             obj.Camera.gameObject.SetActive(false);
@@ -28,10 +32,12 @@ public class TitleAnim : MonoBehaviour
     }
     public void Light()
     {
+        selectView.gameObject.SetActive(true);
         if (selectView.gameObject.activeSelf)
         {
             StartCoroutine(LightUp());
         }
+        titleManager.SetActive(false);
     }
     private IEnumerator LightUp()
     {
@@ -43,5 +49,6 @@ public class TitleAnim : MonoBehaviour
             AudioManager.Instance.PlaySE("点灯", audioSource);
             yield return new WaitForSeconds(1f);
         }
+        modeSelect.SetActive(true);
     }
 }
