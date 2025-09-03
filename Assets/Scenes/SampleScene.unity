@@ -191,7 +191,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -217,8 +217,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0871558, y: -0, z: 0, w: -0.9961948}
-  m_LocalPosition: {x: 18.10825, y: 1.9024919, z: 3.6516933}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.33, y: 2.682, z: -9.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1680,6 +1680,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 244800457467410055, guid: 9159f1eda120de944b111c8db71eb66c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 613794239811120482, guid: 9159f1eda120de944b111c8db71eb66c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.7
@@ -1724,10 +1728,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReflectionMirror
       objectReference: {fileID: 0}
+    - target: {fileID: 1108575763322451330, guid: 9159f1eda120de944b111c8db71eb66c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6573010330207532839, guid: 9159f1eda120de944b111c8db71eb66c, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 6803388349330503313, guid: 9159f1eda120de944b111c8db71eb66c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.37
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1801,7 +1813,10 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 330585545}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5303966216938030424, guid: de760fa10ad3a4f4c8dd2d3ccfe3872f, type: 3}
+    - {fileID: 6967407011210866567, guid: de760fa10ad3a4f4c8dd2d3ccfe3872f, type: 3}
+    - {fileID: 2621100542077161320, guid: de760fa10ad3a4f4c8dd2d3ccfe3872f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
