@@ -8,4 +8,9 @@ public class PlayerBase : MonoBehaviour
         _playerBase = new InputSystem_Actions();
         _playerBase.Enable();
     }
+
+    protected void BaseOnDisable()
+    {
+        _playerBase?.Disable();
+    }
 }
