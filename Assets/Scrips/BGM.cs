@@ -2,13 +2,17 @@
 
 public class BGM : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    public static BGM Instance;
+
+    [SerializeField] private Camera firstCam;
+    [SerializeField] private Camera secondCam;
 
     private void Awake()
     {
-        if (target == null)
+        transform.position = firstCam.transform.position;
+        if (!Instance)
         {
-            Instantiate(this.gameObject);
+            Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
         else
@@ -18,6 +22,15 @@ public class BGM : MonoBehaviour
     }
     private void Update()
     {
-        transform.position = target.position;
+        //ChengeTarget();
+        transform.position = transform.position;
     }
+
+    //private void ChengeTarget()
+    //{
+    //    if (!firstCam.gameObject.activeSelf)
+    //    {
+    //        transform.position = secondCam.transform.position;
+    //    }
+    //}
 }
