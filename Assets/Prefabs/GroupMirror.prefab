@@ -318,8 +318,6 @@ GameObject:
   - component: {fileID: 8505365240514560234}
   - component: {fileID: 3199204170115375382}
   - component: {fileID: 2602578263685850973}
-  - component: {fileID: 5303966216938030424}
-  - component: {fileID: 6967407011210866567}
   m_Layer: 0
   m_Name: Dummy
   m_TagString: Untagged
@@ -395,33 +393,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5303966216938030424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2828218873008220517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dabffa5e51e120e408c038186fd6827a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
-  reflectionCamera: {fileID: 3020176961520070854}
---- !u!114 &6967407011210866567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2828218873008220517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14c594cc28d279e4abc80723172183ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spwanPoint: {fileID: 5691323955200282307}
 --- !u!1 &3872535343433158500
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +956,6 @@ GameObject:
   - component: {fileID: 1393170792344674122}
   - component: {fileID: 4264386433716401724}
   - component: {fileID: 1803697925417780432}
-  - component: {fileID: 2621100542077161320}
   m_Layer: 0
   m_Name: Dummy (1)
   m_TagString: Untagged
@@ -1061,20 +1031,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2621100542077161320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7337038608247218072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dabffa5e51e120e408c038186fd6827a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
-  reflectionCamera: {fileID: 3574167028816767707}
 --- !u!1 &7942942428950601849
 GameObject:
   m_ObjectHideFlags: 0
