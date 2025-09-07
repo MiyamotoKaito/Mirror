@@ -30,7 +30,6 @@ public class AudioManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
     public void PlaySE(string name, AudioSource audiosource)
     {
         foreach (var clip in seList)
@@ -42,7 +41,6 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
-
     public void PlayBGM(string name, AudioSource audiosource)
     {
         foreach (var clip in bgmList)
@@ -56,7 +54,14 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
-
+    public void BiggerBGM(AudioSource audioSource)
+    {
+        audioSource.volume += 0.01f * Time.deltaTime;
+    }
+    public void SmallerBGM(AudioSource audioSource)
+    {
+        audioSource.volume -= 0.01f * Time.deltaTime ;
+    }
     public void Stop(AudioSource audioSource)
     {
         audioSource?.Stop();
