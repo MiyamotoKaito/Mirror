@@ -1812,7 +1812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenes:
   - cams: {fileID: 2142741501}
-    sceneNames: aaa
+    sceneNames: ManInTheMirror
   - cams: {fileID: 606592235}
     sceneNames: SampleScene
   - cams: {fileID: 1332320671}
