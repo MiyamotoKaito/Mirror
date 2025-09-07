@@ -18,12 +18,11 @@ public abstract class MirrorController : MonoBehaviour
     {
         OnMirorUpdate -= UpdateMirror;
     }
-    private void Start()
-    {
-        var rCamPos = reflectionCamera.transform.position;
-        var pCamPosY = playerCamera.transform.localPosition.y;
-        reflectionCamera.transform.position = new Vector3(rCamPos.x, pCamPosY, rCamPos.z);
-    }
+    //private void Start()
+    //{
+    //    var rCamPos = reflectionCamera.transform.position;
+    //    reflectionCamera.transform.position = new Vector3(rCamPos.x, transform.position.y, rCamPos.z);
+    //}
     private void Update()
     {
         if (OnMirorUpdate != null)
