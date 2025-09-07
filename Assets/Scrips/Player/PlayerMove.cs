@@ -49,7 +49,7 @@ public class PlayerMove : PlayerBase
         }
         if (isMove)
         {
-            Vector3 orientation = cameraPos.forward * _currentMove.y + cameraPos.right * _currentMove.x;
+            Vector3 orientation = transform.forward * _currentMove.y + cameraPos.right * _currentMove.x;
             Vector3 currentVelocity = orientation.normalized * walkSpeed;
             _rb.linearVelocity = new Vector3(currentVelocity.x, _rb.linearVelocity.y, currentVelocity.z);
         }
