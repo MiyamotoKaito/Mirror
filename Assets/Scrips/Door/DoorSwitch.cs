@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// switchのオブジェクトにアタッチして対応するドアのアニメーションを起動する
+/// Switchのオブジェクトにアタッチして対応するドアのアニメーションを起動する
 /// </summary>
 public class DoorSwitch : PlayerBase
 {
@@ -41,6 +41,10 @@ public class DoorSwitch : PlayerBase
             isTrigger = false;
         }
     }
+    /// <summary>
+    /// ドアのアニメーションの開始
+    /// </summary>
+    /// <param name="context"></param>
     private void OnInputInteract(InputAction.CallbackContext context)
     {
         if (context.started && isTrigger)

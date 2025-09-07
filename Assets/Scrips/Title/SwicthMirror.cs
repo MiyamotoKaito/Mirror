@@ -6,12 +6,16 @@ using UnityEngine.InputSystem;
 
 public class SwicthMirror : PlayerBase
 {
+    /// <summary>タイトルのカメラ</summary>
     [SerializeField] private CinemachineCamera titleCam;
+    /// <summary>タイトルで鏡の周りを周ってるカメラ</summary>
     [SerializeField] private CinemachineCamera moveCam;
+    /// <summary>タイトルで中心の鏡についているカメラ</summary>
     [SerializeField] private CinemachineCamera mirrorCam;
+    /// <summary>タイトルで見えるカメラ</summary>
     [SerializeField] private Camera mainCam;
+    /// <summary>鏡の中に入ったら切り替えるカメラ</summary>
     [SerializeField] private Camera selectCam;
-    [SerializeField] private Camera showCam;
 
     public UnityEvent Action;
 
@@ -34,7 +38,10 @@ public class SwicthMirror : PlayerBase
         _playerBase.Player.Attack.started -= OnInputEnterMirror;
         base.BaseOnDisable();
     }
-
+    /// <summary>
+    /// クリックすると鏡の中に入る
+    /// </summary>
+    /// <param name="context"></param>
     private void OnInputEnterMirror(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -42,7 +49,10 @@ public class SwicthMirror : PlayerBase
             StartCoroutine(Swicth());
         }
     }
-
+    /// <summary>
+    /// 鏡の中に入った後のアニメーション
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator Swicth()
     {
         titleCam.gameObject.SetActive(false);

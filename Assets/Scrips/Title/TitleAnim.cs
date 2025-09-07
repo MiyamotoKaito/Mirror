@@ -4,17 +4,23 @@ using Unity.Cinemachine;
 using UnityEngine;
 public class TitleAnim : MonoBehaviour
 {
+    /// <summary>スポットライトとカメラの配列</summary>
     [SerializeField] private List<SelectObjects> objs;
+    /// <summary>モードセレクト全体を映し出すカメラ</summary>
     [SerializeField] private CinemachineCamera selectView;
+    /// <summary>モードセレクトを管理するオブジェクト</summary>
     [SerializeField] private GameObject modeSelect;
-
+    /// <summary>自分のaudiosoure</summary>
     [SerializeField] private AudioSource audioSource;
+    /// <summary>タイトル管理のオブジェクト</summary>
     [SerializeField] private GameObject titleManager;
 
     [System.Serializable]
     public class SelectObjects
     {
+        /// <summary>スポットライト</summary>
         [SerializeField] private GameObject spotLights;
+        /// <summary>スポットライトと同じオブジェクトの子供のカメラ</summary>
         [SerializeField] private CinemachineCamera cameras;
 
         public GameObject SpotLights { get { return spotLights; } }
@@ -24,14 +30,19 @@ public class TitleAnim : MonoBehaviour
     {
         selectView.gameObject.SetActive(false);
         modeSelect.SetActive(false);
+        //配列に入っている全てのカメラとスポットライトを無効化
         foreach (SelectObjects obj in objs)
         {
             obj.Camera.gameObject.SetActive(false);
             obj.SpotLights.SetActive(false);
         }
     }
-    public void Light()
+    /// <summary>
+    /// カメラの切り替え
+    /// </summary>
+    public void SetCamera()
     {
+        //カメラの切り替えとアニメーションの開始
         selectView.gameObject.SetActive(true);
         if (selectView.gameObject.activeSelf)
         {
@@ -39,8 +50,13 @@ public class TitleAnim : MonoBehaviour
         }
         titleManager.SetActive(false);
     }
+    /// <summary>
+    /// ライトアップのアニメーションコルーチン
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator LightUp()
     {
+        //2秒待って1秒ごとにスポットライトとカメラを有効にする
         yield return new WaitForSeconds(2);
         foreach (SelectObjects obj in objs)
         {

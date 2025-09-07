@@ -2,9 +2,14 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
+/// <summary>
+/// 鏡から離れたら鏡の描画を無効化する
+/// </summary>
 public class NearByMirror : MonoBehaviour
 {
+    /// <summary>鏡の部分</summary>
     [SerializeField] private GameObject mirror;
+    /// <summary>鏡に写ってるテクスチャ</summary>
     [SerializeField] private RenderTexture mirrorTex;
 
     private RenderTexture sourceTex;
