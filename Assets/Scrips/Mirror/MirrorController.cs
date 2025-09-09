@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System;
 
+/// <summary>
+/// 鏡の共通する部分を管理するクラス
+/// </summary>
 public abstract class MirrorController : MonoBehaviour
 {
     [Tooltip("playerのカメラ"), SerializeField]
@@ -18,11 +21,6 @@ public abstract class MirrorController : MonoBehaviour
     {
         OnMirorUpdate -= UpdateMirror;
     }
-    //private void Start()
-    //{
-    //    var rCamPos = reflectionCamera.transform.position;
-    //    reflectionCamera.transform.position = new Vector3(rCamPos.x, transform.position.y, rCamPos.z);
-    //}
     private void Update()
     {
         if (OnMirorUpdate != null)

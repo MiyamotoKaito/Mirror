@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
-
+/// <summary>
+/// ワープする鏡用のクラス
+/// </summary>
 public class Incident : MirrorController
 {
     public override void UpdateMirror()

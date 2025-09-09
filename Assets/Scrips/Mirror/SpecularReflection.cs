@@ -2,6 +2,9 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// 鏡の反射を管理するクラス
+/// </summary>
 public class SpecularReflection : MirrorController
 {
     public override void UpdateMirror()

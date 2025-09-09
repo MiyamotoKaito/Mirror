@@ -7,18 +7,25 @@ using UnityEngine;
 /// </summary>
 public class DoorOpen : MonoBehaviour
 {
+    /// <summary>右のドア</summary>
     [SerializeField] private Transform right;
+    /// <summary>左のドア</summary>
     [SerializeField] private Transform left;
+    /// <summary>ドアのanimation用のカメラ</summary>
     [SerializeField] private GameObject doorCamera;
+    /// <summary>プレイヤーのカメラ</summary>
     private GameObject playerCam;
+    /// <summary>animationを始めるためのフラグ</summary>
     private bool isOpen;
-
-
     private void Awake()
     {
         doorCamera.SetActive(false);
         playerCam = GameObject.Find("PlayerCamera");
     }
+    /// <summary>
+    /// ドアのアニメーション
+    /// DoorSwicthイベントで呼び出す
+    /// </summary>
     public void OpenTheDoor()
     {
         if (!isOpen)
@@ -27,7 +34,7 @@ public class DoorOpen : MonoBehaviour
             playerCam.SetActive(false);
             doorCamera.SetActive(true);
 
-
+            //右のドアのanimation
             Tween r = right.DOLocalMove(new Vector3(0.2f, 0, 0), 1f).SetRelative(true)
                  .OnComplete(() =>
                  {
@@ -37,6 +44,7 @@ public class DoorOpen : MonoBehaviour
                         doorCamera.SetActive(false);
                     });
                  });
+            //左のドアのanimation
             Tween l = left.DOLocalMove(new Vector3(0.2f, 0, 0), 1f).SetRelative(true)
                  .OnComplete(() =>
                  {
@@ -47,6 +55,7 @@ public class DoorOpen : MonoBehaviour
                     });
                  });
 
+            //アニメーションのディレイ
             r.SetDelay(2f);
             l.SetDelay(2f);
         }
