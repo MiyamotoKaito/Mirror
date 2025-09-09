@@ -4,7 +4,9 @@ using UnityEngine.UIElements;
 
 public class NearByMirror : MonoBehaviour
 {
+    /// <summary>鏡</summary>
     [SerializeField] private GameObject mirror;
+    /// <summary>鏡についてるレンダラーテクスチャ</summary>
     [SerializeField] private RenderTexture mirrorTex;
 
     private RenderTexture sourceTex;
