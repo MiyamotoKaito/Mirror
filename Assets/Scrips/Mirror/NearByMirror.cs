@@ -1,5 +1,6 @@
 ﻿using UnityEditor.AssetImporters;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 public class NearByMirror : MonoBehaviour
@@ -8,6 +9,8 @@ public class NearByMirror : MonoBehaviour
     [SerializeField] private GameObject mirror;
     /// <summary>鏡についてるレンダラーテクスチャ</summary>
     [SerializeField] private RenderTexture mirrorTex;
+
+    public UnityEvent Action;
 
     private RenderTexture sourceTex;
     private void Awake()
@@ -18,6 +21,7 @@ public class NearByMirror : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Action.Invoke();
         mirror.SetActive(true);
         Graphics.Blit(sourceTex, mirrorTex);//書き込み
     }
