@@ -1884,13 +1884,12 @@ MonoBehaviour:
   mirrorCam: {fileID: 335095097}
   mainCam: {fileID: 92273085}
   selectCam: {fileID: 266802727}
-  showCam: {fileID: 1131091737}
   Action:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 579525257}
         m_TargetAssemblyTypeName: TitleAnim, Assembly-CSharp
-        m_MethodName: Light
+        m_MethodName: SetCamera
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
