@@ -12,7 +12,7 @@ public class SpecularReflection : MirrorController
         //反射ベクトルの計算
         #region
         //カメラから鏡面への方向ベクトル
-        var incident = playerCamera.transform.forward;
+        var incident = reflectionCamera.transform.position - playerCamera.transform.position;
 
         //鏡面からの法線ベクトル
         var normal = transform.forward;
