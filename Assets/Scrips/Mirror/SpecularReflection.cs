@@ -25,9 +25,6 @@ public class SpecularReflection : MirrorController
         //反射ベクトルの方向に鏡面のカメラを向かせる
         reflectionCamera.transform.LookAt(reflectionCamera.transform.position + reflection);
 
-        //カメラと鏡面との距離(焦点距離)
-        var dictance = Vector3.Distance(transform.position, playerCamera.transform.position);
-
         //鏡のスケール感を統一
         reflectionCamera.fieldOfView = playerCamera.fieldOfView;
         reflectionCamera.nearClipPlane = playerCamera.nearClipPlane;
