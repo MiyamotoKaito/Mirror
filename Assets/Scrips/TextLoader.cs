@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using System.Linq;
 
 public class TextLoader : MonoBehaviour
 {
