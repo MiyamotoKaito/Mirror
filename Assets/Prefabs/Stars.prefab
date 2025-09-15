@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0cb840efc5fc84696201bb9da0491e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swicthstate: 1
   Action:
     m_PersistentCalls:
       m_Calls:
