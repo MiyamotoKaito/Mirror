@@ -12,5 +12,5 @@ EditorBuildSettings:
     path: Assets/Scenes/InGame/ManInTheMirror.unity
     guid: 04dc3e0ebe424a64a88fe2533ffa447c
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 74ad7810b02453a4d9cee46edc8ed773, type: 3}
   m_UseUCBPForAssetBundles: 0
