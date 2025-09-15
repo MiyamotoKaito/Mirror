@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// Switchのオブジェクトにアタッチして対応するドアのアニメーションを起動する
 /// </summary>
-public class DoorSwitch : PlayerBase
+public class Switch : PlayerBase
 {
     public UnityEvent Action;
     private bool isTrigger;
@@ -42,7 +42,7 @@ public class DoorSwitch : PlayerBase
         }
     }
     /// <summary>
-    /// ドアのアニメーションの開始
+    /// 入力を受け付けた時にイベントで呼び出す
     /// </summary>
     /// <param name="context"></param>
     private void OnInputInteract(InputAction.CallbackContext context)
