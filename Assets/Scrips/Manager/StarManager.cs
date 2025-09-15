@@ -60,7 +60,7 @@ public class StarManager : MonoBehaviour
     {
         foreach (var star in _stars)
         {
-            if (star.CollectStar.activeSelf == false)
+            if (!star.CollectStar.activeSelf)
             {
                 return;
             }
