@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Swicth
   - Ground
+  - Reflection
   layers:
   - Default
   - TransparentFX
