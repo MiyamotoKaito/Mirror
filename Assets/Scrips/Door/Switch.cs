@@ -8,12 +8,17 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class Switch : PlayerBase
 {
+    [SerializeField] private Swicthstate swicthstate;
     public UnityEvent Action;
     private bool isTrigger;
 
+    private GameObject _player;
+    private AudioSource _audioSource;
     private void Awake()
     {
         base.BaseAwake();
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _audioSource = _player.GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -50,6 +55,25 @@ public class Switch : PlayerBase
         if (context.started && isTrigger)
         {
             Action.Invoke();
+            PlaySound();
         }
     }
+
+    private void PlaySound()
+    {
+        if (swicthstate == Swicthstate.buttom)
+        {
+            AudioManager.Instance.PlaySE("ボタンを押す", _audioSource);
+        }
+        else if (swicthstate == Swicthstate.star)
+        {
+            AudioManager.Instance.PlaySE("星ゲット", _audioSource);
+        }
+    }
+}
+
+public enum Swicthstate
+{
+    buttom,
+    star
 }
