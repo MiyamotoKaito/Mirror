@@ -11,6 +11,7 @@ public class PlayerMove : PlayerBase
     private Vector2 _currentMove;
     /// <summary>動いても良いか判断するためのフラグ</summary>
     private bool isMove;
+    private bool isReflectMove;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
@@ -59,6 +60,11 @@ public class PlayerMove : PlayerBase
             Vector3 orientation = transform.forward * _currentMove.y + cameraPos.right * _currentMove.x;
             //向いている方向の速度に歩いているスピードを掛ける
             Vector3 currentVelocity = orientation.normalized * walkSpeed;
+            if (isReflectMove)
+            {
+                _rb.linearVelocity = new Vector3(-currentVelocity.x, _rb.linearVelocity.y, -currentVelocity.z);
+                return;
+            }
             //現在の速度にx軸とz軸を加え続ける
             _rb.linearVelocity = new Vector3(currentVelocity.x, _rb.linearVelocity.y, currentVelocity.z);
         }
@@ -104,6 +110,20 @@ public class PlayerMove : PlayerBase
         if (collision.collider.CompareTag("Ground"))
         {
             isGround = false;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Reflection"))
+        {
+            isReflectMove = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Reflection"))
+        {
+            isReflectMove = false;
         }
     }
 }
