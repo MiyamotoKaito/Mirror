@@ -15,10 +15,15 @@ public class TextLoader : MonoBehaviour
     [SerializeField, TextArea(2, 5)]
     private string log;
 
+    private GameObject _player;
+    private AudioSource _audioSource;
+
     private Coroutine _coroutine;
     private void Awake()
     {
         logCanvas.enabled = false;
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _audioSource = _player.GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,6 +49,7 @@ public class TextLoader : MonoBehaviour
     /// </summary>
     private void Write()
     {
+        AudioManager.Instance.PlaySE("タイピング", _audioSource);
         logText.text = log;
         if (_coroutine != null)
         {
@@ -66,6 +72,7 @@ public class TextLoader : MonoBehaviour
             //一定時間待機
             yield return delay;
         }
+        AudioManager.Instance.Stop(_audioSource);
         _coroutine = null;
     }
 }
