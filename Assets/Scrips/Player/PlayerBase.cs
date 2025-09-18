@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// インプットシステムのアクションを管理するクラス
