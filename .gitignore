@@ -100,3 +100,5 @@ InitTestScene*.unity*
 Assets/Package/
 Assets/Fonts/
 Assets/TextMesh Pro/
+Assets/export3dcoat.obj
+Assets/export3dcoat.obj.meta
