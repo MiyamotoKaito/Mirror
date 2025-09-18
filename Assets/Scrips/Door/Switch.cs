@@ -1,26 +1,37 @@
 ﻿using System.Runtime.InteropServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 /// <summary>
 /// Switchのオブジェクトにアタッチして対応するドアのアニメーションを起動する
 /// </summary>
 public class Switch : PlayerBase
 {
-    [SerializeField] private Swicthstate swicthstate;
+    [SerializeField] private SwicthState swicthState;
+    [SerializeField] private TextMeshProUGUI interactText;
+    [SerializeField] private Image interactPanel;
     public UnityEvent Action;
-    private bool isTrigger;
-
+    private Animator _animator;
     private GameObject _player;
-    private AudioSource _audioSource;
+    private AudioSource _playerAudioSource;
+    private bool isTrigger;
+    private bool isPlaying;
+    private bool isPlaySound;
+    private string interactName;
     private void Awake()
     {
         base.BaseAwake();
+        _animator = GetComponent<Animator>();
         _player = GameObject.FindGameObjectWithTag("Player");
-        _audioSource = _player.GetComponent<AudioSource>();
+        _playerAudioSource = _player.GetComponent<AudioSource>(); 
     }
-
+    private void Start()
+    {
+        interactPanel.gameObject.SetActive(false);
+    }
     private void OnEnable()
     {
         _playerBase.Player.Interact.started += OnInputInteract;
@@ -37,6 +48,11 @@ public class Switch : PlayerBase
         if (other.CompareTag("Player"))
         {
             isTrigger = true;
+            InputInteractName();
+            if (!isPlaying)
+            {
+                interactPanel.gameObject.SetActive(true);
+            }  
         }
     }
     private void OnTriggerExit(Collider other)
@@ -44,6 +60,7 @@ public class Switch : PlayerBase
         if (other.CompareTag("Player"))
         {
             isTrigger = false;
+            interactPanel.gameObject.SetActive(false);
         }
     }
     /// <summary>
@@ -52,28 +69,56 @@ public class Switch : PlayerBase
     /// <param name="context"></param>
     private void OnInputInteract(InputAction.CallbackContext context)
     {
-        if (context.started && isTrigger)
+        if (context.started && isTrigger && !isPlaying)
         {
             Action.Invoke();
             PlaySound();
+            isPlaying = true;
+            interactPanel.gameObject.SetActive(false);
         }
     }
-
+    /// <summary>
+    /// 一回だけ音を鳴らす
+    /// stateによって鳴らす音を変える
+    /// goalは音を鳴らさない
+    /// /// </summary>
     private void PlaySound()
     {
-        if (swicthstate == Swicthstate.buttom)
+        if (!isPlaySound)
         {
-            AudioManager.Instance.PlaySE("ボタンを押す", _audioSource);
-        }
-        else if (swicthstate == Swicthstate.star)
-        {
-            AudioManager.Instance.PlaySE("星ゲット", _audioSource);
+            if (swicthState == SwicthState.button)
+            {
+                //ボタンのアニメーション
+                _animator.SetBool("Push", true);
+                AudioManager.Instance.PlaySE("ボタンを押す", _playerAudioSource);
+            }
+            else if (swicthState == SwicthState.star)
+            {
+                AudioManager.Instance.PlaySE("星ゲット", _playerAudioSource);
+            }
+            isPlaySound = true;
         }
     }
+    private void InputInteractName()
+    {
+        if (swicthState == SwicthState.button)
+        {
+            interactName = "押す";
+        }
+        if (swicthState == SwicthState.star)
+        {
+            interactName = "ゲット";
+        }
+        if (swicthState == SwicthState.goal)
+        {
+            interactName = "ゴール";
+        }
+        interactText.text = interactName;
+    }
 }
-
-public enum Swicthstate
+public enum SwicthState
 {
-    buttom,
-    star
+    button,
+    star,
+    goal
 }
