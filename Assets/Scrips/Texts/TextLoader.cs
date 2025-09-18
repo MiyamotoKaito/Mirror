@@ -5,8 +5,6 @@ using System.Linq;
 
 public class TextLoader : MonoBehaviour
 {
-    [Header("読み込み専用のCanvas")]
-    [SerializeField] private Canvas logCanvas;
     [Header("読み込むためのテキスト")]
     [SerializeField] private TextMeshProUGUI logText;
     [Header("読み込む速度")]
@@ -21,28 +19,28 @@ public class TextLoader : MonoBehaviour
     private Coroutine _coroutine;
     private void Awake()
     {
-        logCanvas.enabled = false;
+        logText.enabled = false;
         _player = GameObject.FindGameObjectWithTag("Player");
         _audioSource = _player.GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        logCanvas.enabled = true;
         Write();
+        logText.enabled = true;
     }
     private void OnCollisionEnter(Collision collision)
     {
-        logCanvas.enabled = true;
         Write();
+        logText.enabled = true;
     }
     private void OnTriggerExit(Collider other)
     {
-        logCanvas.enabled = false;
+        logText.enabled = false;
     }
     private void OnCollisionExit(Collision collision)
     {
-        logCanvas.enabled = false;
+        logText.enabled = false;
     }
     /// <summary>
     /// 文字送りの演出
