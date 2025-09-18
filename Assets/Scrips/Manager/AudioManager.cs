@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
         public AudioClip Clip;
     }
 
-    [SerializeField,Header("SEリスト")]
+    [SerializeField, Header("SEリスト")]
     private List<SoundClip> seList;
 
     [SerializeField, Header("BGMリスト")]
@@ -37,9 +37,10 @@ public class AudioManager : MonoBehaviour
             if (clip.Name == name)
             {
                 audiosource?.PlayOneShot(clip.Clip);
-                break;
+                return;
             }
         }
+        Debug.LogError($"{name}がSEリストにない");
     }
     public void PlayBGM(string name, AudioSource audiosource)
     {
@@ -50,9 +51,10 @@ public class AudioManager : MonoBehaviour
                 audiosource.clip = clip.Clip;
                 audiosource.loop = true;
                 audiosource.Play();
-                break;
+                return;
             }
         }
+        Debug.LogError($"{name}がBGMリストにない");
     }
     public void BiggerBGM(AudioSource audioSource)
     {
@@ -60,7 +62,7 @@ public class AudioManager : MonoBehaviour
     }
     public void SmallerBGM(AudioSource audioSource)
     {
-        audioSource.volume -= 0.01f * Time.deltaTime ;
+        audioSource.volume -= 0.01f * Time.deltaTime;
     }
     public void Stop(AudioSource audioSource)
     {
