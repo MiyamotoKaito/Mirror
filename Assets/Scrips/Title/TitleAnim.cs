@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
+using UnityEditor.Events;
 using UnityEngine;
+using UnityEngine.Events;
 public class TitleAnim : MonoBehaviour
 {
     /// <summary>スポットライトとカメラの配列</summary>
@@ -10,10 +12,14 @@ public class TitleAnim : MonoBehaviour
     [SerializeField] private CinemachineCamera selectView;
     /// <summary>モードセレクトを管理するオブジェクト</summary>
     [SerializeField] private GameObject modeSelect;
-    /// <summary>自分のaudiosoure</summary>
-    [SerializeField] private AudioSource audioSource;
     /// <summary>タイトル管理のオブジェクト</summary>
     [SerializeField] private GameObject titleManager;
+
+    [SerializeField] private GameObject moveText;
+    /// <summary>Managerのaudiosoure</summary>
+    private AudioSource _audioSource;
+
+    public UnityEvent Action;
 
     [System.Serializable]
     public class SelectObjects
@@ -29,7 +35,9 @@ public class TitleAnim : MonoBehaviour
     private void Awake()
     {
         selectView.gameObject.SetActive(false);
+        moveText.SetActive(false);
         modeSelect.SetActive(false);
+        _audioSource = AudioManager.Instance.gameObject.GetComponent<AudioSource>();
         //配列に入っている全てのカメラとスポットライトを無効化
         foreach (SelectObjects obj in objs)
         {
@@ -62,9 +70,12 @@ public class TitleAnim : MonoBehaviour
         {
             obj.Camera.gameObject.SetActive(true);
             obj.SpotLights.SetActive(true);
-            AudioManager.Instance.PlaySE("点灯", audioSource);
+            AudioManager.Instance.PlaySE("点灯", _audioSource);
             yield return new WaitForSeconds(1f);
         }
         modeSelect.SetActive(true);
+        Action.Invoke();
+        AudioManager.Instance.PlayBGM("モードセレクト", _audioSource);
+        moveText?.SetActive(true);
     }
 }
