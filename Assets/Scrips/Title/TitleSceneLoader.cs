@@ -9,18 +9,36 @@ using UnityEngine.SceneManagement;
 public class TitleSceneLoader : PlayerBase
 {
     /// <summary>鏡についているカメラとシーンの名前を持ったクラスの配列</summary>
-    [SerializeField] private List<Scene> scenes;
-
+    [SerializeField] private List<CameraInfo> scenes;
+    [SerializeField] private GameObject moveText;
+    /// <summary>
+    /// カメラが持つシーンの情報
+    /// </summary>
     [System.Serializable]
-    public class Scene
+    public class CameraInfo
     {
         /// <summary>モード選択用のカメラ</summary>
-        [SerializeField] private CinemachineCamera cams;
+        [SerializeField, Header("カメラ")]
+        private CinemachineCamera cam;
+        /// <summary>シーンの名前</summary>
+        [SerializeField, Header("表示名")]
+        private string sceneName;
+        /// <summary>シーンの説明</summary>
+        [SerializeField, Header("説明"),TextArea(1, 4)]
+        private string sceneInfo;
+        /// <summary>シーンが設定されているかどうか</summary>
+        [SerializeField, Header("表示名")]
+        private bool hasScene;
         /// <summary>ロードするシーンの名前</summary>
-        [SerializeField] private string sceneNames;
+        [SerializeField, Header("ロードするシーンの名前(hasSceneがtrueのときのみ)")]
+        private string loadSceneName;
 
-        public CinemachineCamera Cams { get { return cams; } }
-        public string SceneName { get { return sceneNames; } }
+        public CinemachineCamera Cam => cam;
+        public string SceneName => sceneName;
+        public string SceneInfo => sceneInfo;
+        public bool HasScene => hasScene;
+        public string LoadSceneName => loadSceneName;
+
     }
     private void Awake()
     {
@@ -35,6 +53,18 @@ public class TitleSceneLoader : PlayerBase
         _playerBase.Player.Attack.started -= OnInputEnterScene;
         base.BaseOnDisable();
     }
+    public CameraInfo GetCamsInfo()
+    {
+        //優先度が1のカメラを探す
+        foreach (var scene in scenes)
+        {
+            if (scene.Cam.Priority == 1)
+            {
+               return scene;
+            }
+        }
+        return null;
+    }
     /// <summary>
     /// 優先度が1のカメラについているシーンをロードするメソッド
     /// </summary>
@@ -43,14 +73,17 @@ public class TitleSceneLoader : PlayerBase
     {
         if (context.started)
         {
-            //優先度が1のカメラを探してついているシーンをロードする
-            foreach (Scene scene in scenes)
+            var camsInfo = GetCamsInfo();
+            //シーンを持っていたらロードする
+            if (camsInfo.HasScene)
             {
-                _playerBase.Player.Disable();
-                if (scene.Cams.Priority == 1)
-                {
-                    SceneManager.LoadScene(scene.SceneName);
-                }
+                _playerBase.Disable();
+                SceneManager.LoadScene(camsInfo.LoadSceneName);
+                moveText.SetActive(false);
+}
+            else
+            {
+                Debug.Log("シーンを持っていない");
             }
         }
     }
