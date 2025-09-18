@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 6803388349330503313}
   - component: {fileID: 8188508043607903114}
   - component: {fileID: 6207994839117912705}
-  - component: {fileID: 6573010330207532839}
+  - component: {fileID: 2000101265857808300}
   m_Layer: 0
   m_Name: MirrorBlock
   m_TagString: Untagged
@@ -276,7 +276,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6573010330207532839
+--- !u!114 &2000101265857808300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
-  reflectionCamera: {fileID: 2755462567758942117}
+  reflectionCamera: {fileID: 0}
 --- !u!1 &6962793328463794664
 GameObject:
   m_ObjectHideFlags: 0
