@@ -20,7 +20,6 @@ public class SwicthMirror : PlayerBase
     [SerializeField] private Camera selectCam;
     /// <summary>フェードイン用のパネル</summary>
     [SerializeField] private Image panel;
-    [SerializeField] private GameObject moveText;
 
     private AudioSource _audioSource;
     public UnityEvent Action;
@@ -28,7 +27,6 @@ public class SwicthMirror : PlayerBase
     private void Awake()
     {
         base.BaseAwake();
-        moveText.SetActive(false);
         titleCam.gameObject.SetActive(true);
         selectCam.gameObject.SetActive(false);
         moveCam.gameObject.SetActive(false);
