@@ -21,11 +21,14 @@ public class PlayerMove : PlayerBase
     [SerializeField] private Transform cameraPos;
     private Rigidbody _rb;
 
+    private Animator _animator;
+
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
         _rb = GetComponent<Rigidbody>();
         base.BaseAwake();
+        _animator = GetComponent<Animator>();
     }
 
     //イベント登録
@@ -48,6 +51,7 @@ public class PlayerMove : PlayerBase
         //カメラのフォワードを取る
         Vector3 foward = cameraPos.forward;
         foward.y = 0f;
+        _animator.SetBool("Walk", isMove);
 
         if (cameraPos.forward != Vector3.zero)
         {
