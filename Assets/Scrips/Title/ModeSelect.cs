@@ -17,9 +17,12 @@ public class ModeSelect : PlayerBase
     {
         base.BaseAwake();
         Cams[0].Priority = 1;//最初のカメラの優先度を1にして他のカメラの衝突を避ける
-        EnableInput();
         var player = GameObject.Find("SecondCam");
         _audiosource = player.GetComponent<AudioSource>();
+    }
+    private void Start()
+    {
+        EnableInput();
     }
     private void OnEnable()
     {
