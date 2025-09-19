@@ -27,9 +27,12 @@ public class PlayerMove : PlayerBase
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        _rb = GetComponent<Rigidbody>();
         base.BaseAwake();
+    }
+    private void Start()
+    {
         _animator = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     //イベント登録
