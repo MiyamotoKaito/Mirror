@@ -20,6 +20,7 @@ public class SwicthMirror : PlayerBase
     [SerializeField] private Camera selectCam;
     /// <summary>フェードイン用のパネル</summary>
     [SerializeField] private Image panel;
+    [SerializeField] private Image logo;
 
     private AudioSource _audioSource;
     public UnityEvent Action;
@@ -34,6 +35,7 @@ public class SwicthMirror : PlayerBase
         panel.enabled = false;
         _audioSource = AudioManager.Instance.gameObject.GetComponent<AudioSource>();
         AudioManager.Instance.PlayBGM("Title", _audioSource);
+        logo.gameObject.SetActive(true);
     }
 
     void OnEnable()
@@ -55,6 +57,7 @@ public class SwicthMirror : PlayerBase
         if (context.started)
         {
             StartCoroutine(Swicth());
+            logo.gameObject.SetActive(false);
         }
     }
     /// <summary>
