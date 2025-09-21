@@ -1,7 +1,5 @@
-﻿using UnityEditor.AssetImporters;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements;
 
 public class NearByMirror : MonoBehaviour
 {

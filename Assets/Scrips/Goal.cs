@@ -39,6 +39,10 @@ public class Goal : MonoBehaviour
     {
         creditText.text = credit;
         _audioSource = AudioManager.Instance.gameObject.GetComponent<AudioSource>();
+        if (_audioSource == null)
+        {
+            Debug.Log("ああああ");
+        }
     }
     private void Update()
     {

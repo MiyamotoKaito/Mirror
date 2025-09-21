@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-/// <summary>
+﻿/// <summary>
 /// ワープする鏡用のクラス
 /// </summary>
 public class Incident : MirrorController

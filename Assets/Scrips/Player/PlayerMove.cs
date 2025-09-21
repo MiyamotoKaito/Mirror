@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.iOS;
 
 /// <summary>
 /// プレイヤーの動きに関するクラス
@@ -103,6 +102,7 @@ public class PlayerMove : PlayerBase
         if (context.started && isGround)
         {
             _rb.linearVelocity = new Vector3(0f, jumpForce, 0f);
+            _animator.SetTrigger("Jump");
         }
     }
 

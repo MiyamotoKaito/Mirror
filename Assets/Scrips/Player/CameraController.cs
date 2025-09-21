@@ -1,5 +1,4 @@
 ﻿using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 /// <summary>
 /// カメラの動きを制御するクラス

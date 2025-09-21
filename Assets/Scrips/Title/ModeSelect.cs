@@ -1,8 +1,7 @@
-﻿using Unity.Cinemachine;
+﻿using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections.Generic;
-using Mono.Cecil;
 
 /// <summary>
 /// カメラの位置を切り替えるクラス
