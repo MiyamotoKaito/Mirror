@@ -79,7 +79,8 @@ public class StarManager : MonoBehaviour
                 {
                     _playerCam.Priority = 1;
                     mirrorCam.Priority = 0;
-                    panel.DOFade(0, 1);
+                    panel.DOFade(0, 1)
+                        .OnComplete(() => { panel.gameObject.SetActive(false); });
                 });
             });
         });
