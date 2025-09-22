@@ -10,16 +10,15 @@ using UnityEngine.UI;
 public class Switch : PlayerBase
 {
     [SerializeField] private SwicthState swicthState;
-    [SerializeField] private TextMeshProUGUI interactText;
     [SerializeField] private Image interactPanel;
     public UnityEvent Action;
+    private DeviceCheck _deviceCheck;
     private Animator _animator;
     private GameObject _player;
     private AudioSource _playerAudioSource;
     private bool isTrigger;
     private bool isPlaying;
     private bool isPlaySound;
-    private string interactName;
     private void Awake()
     {
         base.BaseAwake();
@@ -100,19 +99,18 @@ public class Switch : PlayerBase
     }
     private void InputInteractName()
     {
-        if (swicthState == SwicthState.button)
-        {
-            interactName = "押す";
-        }
-        if (swicthState == SwicthState.star)
-        {
-            interactName = "ゲット";
-        }
-        if (swicthState == SwicthState.goal)
-        {
-            interactName = "ゴール";
-        }
-        interactText.text = interactName;
+        //if (swicthState == SwicthState.button)
+        //{
+        //    interactName = "押す";
+        //}
+        //if (swicthState == SwicthState.star)
+        //{
+        //    interactName = "ゲット";
+        //}
+        //if (swicthState == SwicthState.goal)
+        //{
+        //    interactName = "ゴール";
+        //}
     }
 }
 public enum SwicthState
