@@ -40,12 +40,12 @@ public class SwicthMirror : PlayerBase
 
     void OnEnable()
     {
-        _playerBase.Player.Attack.started += OnInputEnterMirror;
+        _playerBase.Player.All.started += OnInputEnterMirror;
     }
 
     private void OnDisable()
     {
-        _playerBase.Player.Attack.started -= OnInputEnterMirror;
+        _playerBase.Player.All.started -= OnInputEnterMirror;
         base.BaseOnDisable();
     }
     /// <summary>
