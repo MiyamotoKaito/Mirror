@@ -86,8 +86,14 @@ public class ModeSelect : PlayerBase
     private void EnableInput()
     {
         //キーボードを有効化
-        InputSystem.EnableDevice(Keyboard.current);
+        if (Keyboard.current != null)
+        {
+            InputSystem.EnableDevice(Keyboard.current);
+        }
         //パッドを有効化
-        InputSystem.EnableDevice(Gamepad.current);
+        if (Gamepad.current != null)
+        {
+            InputSystem.EnableDevice(Gamepad.current);
+        }
     }
 }

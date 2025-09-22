@@ -94,9 +94,15 @@ public class Goal : MonoBehaviour
     private void EnableInput()
     {
         //キーボードを有効化
-        InputSystem.EnableDevice(Keyboard.current);
+        if (Keyboard.current != null)
+        {
+            InputSystem.EnableDevice(Keyboard.current);
+        }
         //パッドを有効化
-        InputSystem.EnableDevice(Gamepad.current);
+        if (Gamepad.current != null)
+        {
+            InputSystem.EnableDevice(Gamepad.current);
+        }
     }
     /// <summary>
     /// 入力の無効化
@@ -104,8 +110,14 @@ public class Goal : MonoBehaviour
     private void DisableInput()
     {
         //キーボードを無効化
-        InputSystem.DisableDevice(Keyboard.current);
+        if (Keyboard.current != null)
+        {
+            InputSystem.DisableDevice(Keyboard.current);
+        }
         //パッドを無効化
-        InputSystem.DisableDevice(Gamepad.current);
+        if (Gamepad.current != null)
+        {
+            InputSystem.DisableDevice(Gamepad.current);
+        }
     }
 }
