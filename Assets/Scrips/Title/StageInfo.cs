@@ -18,8 +18,10 @@ public class StageInfo : MonoBehaviour
     /// </summary>
     public void ShowText()
     {
-        //基本情報を表示
+        //コンストラクタからシーンの情報を入手
         var camsInfo = sceneLoader.GetCamsInfo();
+
+        //シーンの情報を表示
         if (camsInfo != null)
         {
             stagNameText.enabled = true;
