@@ -178,8 +178,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u53F3\u306B\u79FB\u52D5"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 178022e0b74a33245b4b22d9cb9f6b0b, type: 2}
-  m_sharedMaterial: {fileID: 7120600756389801264, guid: 178022e0b74a33245b4b22d9cb9f6b0b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 736c2a034027e9c4ca7f806281474cfc, type: 2}
+  m_sharedMaterial: {fileID: -4626282602301203855, guid: 736c2a034027e9c4ca7f806281474cfc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 172670900}
   - component: {fileID: 172670899}
   m_Layer: 0
-  m_Name: Mirror (2)
+  m_Name: LeftMirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -779,8 +779,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 480, y: 440}
-  m_SizeDelta: {x: 1000, y: 240}
+  m_AnchoredPosition: {x: 362, y: 411}
+  m_SizeDelta: {x: 1200, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &244195866
 MonoBehaviour:
@@ -804,8 +804,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: StageName
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 178022e0b74a33245b4b22d9cb9f6b0b, type: 2}
-  m_sharedMaterial: {fileID: 7120600756389801264, guid: 178022e0b74a33245b4b22d9cb9f6b0b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 736c2a034027e9c4ca7f806281474cfc, type: 2}
+  m_sharedMaterial: {fileID: -4626282602301203855, guid: 736c2a034027e9c4ca7f806281474cfc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1162,7 +1162,7 @@ GameObject:
   - component: {fileID: 267355392}
   - component: {fileID: 267355391}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Senter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1559,7 +1559,7 @@ GameObject:
   - component: {fileID: 306933792}
   - component: {fileID: 306933791}
   m_Layer: 0
-  m_Name: Cylinder (1)
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2264,8 +2264,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: StageInfo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 178022e0b74a33245b4b22d9cb9f6b0b, type: 2}
-  m_sharedMaterial: {fileID: 7120600756389801264, guid: 178022e0b74a33245b4b22d9cb9f6b0b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 736c2a034027e9c4ca7f806281474cfc, type: 2}
+  m_sharedMaterial: {fileID: -4626282602301203855, guid: 736c2a034027e9c4ca7f806281474cfc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3112,8 +3112,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u5DE6\u306B\u79FB\u52D5"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 178022e0b74a33245b4b22d9cb9f6b0b, type: 2}
-  m_sharedMaterial: {fileID: 7120600756389801264, guid: 178022e0b74a33245b4b22d9cb9f6b0b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 736c2a034027e9c4ca7f806281474cfc, type: 2}
+  m_sharedMaterial: {fileID: -4626282602301203855, guid: 736c2a034027e9c4ca7f806281474cfc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4394,7 +4394,7 @@ GameObject:
   - component: {fileID: 1189994408}
   - component: {fileID: 1189994407}
   m_Layer: 0
-  m_Name: Mirror
+  m_Name: SenterMirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6088,7 +6088,7 @@ GameObject:
   - component: {fileID: 1638085911}
   - component: {fileID: 1638085910}
   m_Layer: 0
-  m_Name: Cylinder (2)
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6513,7 +6513,7 @@ GameObject:
   - component: {fileID: 1790501838}
   - component: {fileID: 1790501837}
   m_Layer: 0
-  m_Name: Mirror (1)
+  m_Name: RightMirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
