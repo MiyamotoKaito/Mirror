@@ -10,12 +10,14 @@ using UnityEngine.UI;
 public class Switch : PlayerBase
 {
     [SerializeField] private SwicthState swicthState;
+    [SerializeField] private TextMeshProUGUI displayText;
     [SerializeField] private Image interactPanel;
     public UnityEvent Action;
-    private DeviceCheck _deviceCheck;
     private Animator _animator;
     private GameObject _player;
+    private GameObject _hud;
     private AudioSource _playerAudioSource;
+    private string _interactText;
     private bool isTrigger;
     private bool isPlaying;
     private bool isPlaySound;
@@ -24,7 +26,8 @@ public class Switch : PlayerBase
         base.BaseAwake();
         _animator = GetComponent<Animator>();
         _player = GameObject.FindGameObjectWithTag("Player");
-        _playerAudioSource = _player.GetComponent<AudioSource>(); 
+        _playerAudioSource = _player.GetComponent<AudioSource>();
+        _hud = GameObject.Find("HUD");
     }
     private void Start()
     {
@@ -50,6 +53,7 @@ public class Switch : PlayerBase
             if (!isPlaying)
             {
                 interactPanel.gameObject.SetActive(true);
+                displayText.SetText(_interactText);
             }  
         }
     }
@@ -99,18 +103,18 @@ public class Switch : PlayerBase
     }
     private void InputInteractName()
     {
-        //if (swicthState == SwicthState.button)
-        //{
-        //    interactName = "押す";
-        //}
-        //if (swicthState == SwicthState.star)
-        //{
-        //    interactName = "ゲット";
-        //}
-        //if (swicthState == SwicthState.goal)
-        //{
-        //    interactName = "ゴール";
-        //}
+        if (swicthState == SwicthState.button)
+        {
+            _interactText = "押す";
+        }
+        if (swicthState == SwicthState.star)
+        {
+            _interactText = "ゲット";
+        }
+        if (swicthState == SwicthState.goal)
+        {
+            _interactText = "ゴール";
+        }
     }
 }
 public enum SwicthState
