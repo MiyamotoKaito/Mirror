@@ -26,5 +26,9 @@ public class SpecularReflection : MirrorController
         //鏡のスケール感を統一
         reflectionCamera.fieldOfView = playerCamera.fieldOfView;
         reflectionCamera.nearClipPlane = playerCamera.nearClipPlane;
+
+        var playerPosY = playerCamera.transform.position.y;
+        var cameraPosY = reflectionCamera.transform.position.y;
+        cameraPosY = playerPosY;
     }
 }
