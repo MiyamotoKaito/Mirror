@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using static DeviceCheck;
 
 public class DeviceCheck : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class DeviceCheck : MonoBehaviour
     /// <summary>デバイス画像のリスト</summary>
     [SerializeField] private List<DeviceImage> deviceImages;
     /// <summary>現在のデバイス</summary>
-    private InputDevice _currentdevice;
+    private InputDevice _currentdevice = Keyboard.current;
     /// <summary>前回のデバイス</summary>
     private InputDevice _lastDevice;
 
@@ -29,8 +28,8 @@ public class DeviceCheck : MonoBehaviour
         /// <summary>パッド用のテキスト</summary>
         [SerializeField] private string padText;
 
-        public TextMeshProUGUI DisplayText => displayText; 
-        public string KeyboardText => keyboardText; 
+        public TextMeshProUGUI DisplayText => displayText;
+        public string KeyboardText => keyboardText;
         public string PadText => padText;
     }
     /// <summary>
@@ -67,21 +66,20 @@ public class DeviceCheck : MonoBehaviour
     private void CheckCurrentDevice()
     {
         //最近のキーボード入力をチェック
-        if (Keyboard.current.wasUpdatedThisFrame)
+        if (Keyboard.current.anyKey.wasPressedThisFrame && Keyboard.current != null)
         {
+            Debug.Log("キーボード入力を検知");
             _currentdevice = Keyboard.current;
             return;
         }
         //最近のパッド入力をチェック
-        if (Gamepad.current.wasUpdatedThisFrame)
+       　else if (Gamepad.current.rightStick.ReadValue().magnitude > 0.1f
+            || Gamepad.current.leftStick.ReadValue().magnitude > 0.1f
+            && Gamepad.current != null && Gamepad.current.enabled)
         {
+            Debug.Log("パッド入力を検知");
             _currentdevice = Gamepad.current;
             return;
-        }
-        //何も入力が無かった場合キーボードをデフォルトに設定
-        if (_currentdevice == null)
-        {
-            _currentdevice = Keyboard.current;
         }
     }
     /// <summary>
@@ -94,6 +92,7 @@ public class DeviceCheck : MonoBehaviour
         //テキストの表示
         foreach (var deviceText in deviceTexts)
         {
+            Debug.Log("テキスト変更");
             //キーボードのテキストの表示
             if (_currentdevice is Keyboard)
             {
@@ -108,6 +107,7 @@ public class DeviceCheck : MonoBehaviour
         //画像の表示
         foreach (var deviceImage in deviceImages)
         {
+            Debug.Log("画像変更");
             //キーボードの画像の表示
             if (_currentdevice is Keyboard)
             {
