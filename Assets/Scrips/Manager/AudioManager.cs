@@ -44,7 +44,6 @@ public class AudioManager : MonoBehaviour
             audiosource.loop = true;
             audiosource.Play();
         }
-        Debug.LogError($"{name}がBGMリストにない");
     }
     public void BiggerBGM(AudioSource audioSource)
     {
