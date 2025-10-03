@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -32,27 +33,17 @@ public class AudioManager : MonoBehaviour
     }
     public void PlaySE(string name, AudioSource audiosource)
     {
-        foreach (var clip in seList)
-        {
-            if (clip.Name == name)
-            {
-                audiosource?.PlayOneShot(clip.Clip);
-                return;
-            }
-        }
-        Debug.LogError($"{name}がSEリストにない");
+
+        audiosource?.PlayOneShot(seList.FirstOrDefault(clip => clip.Name == name)?.Clip);
     }
     public void PlayBGM(string name, AudioSource audiosource)
     {
-        foreach (var clip in bgmList)
+        var clip = bgmList.FirstOrDefault(c => c.Name == name);
+        if (clip != null)
         {
-            if (clip.Name == name)
-            {
-                audiosource.clip = clip.Clip;
-                audiosource.loop = true;
-                audiosource.Play();
-                return;
-            }
+            audiosource.clip = clip.Clip;
+            audiosource.loop = true;
+            audiosource.Play();
         }
         Debug.LogError($"{name}がBGMリストにない");
     }
