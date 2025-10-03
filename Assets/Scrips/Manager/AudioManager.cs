@@ -33,7 +33,6 @@ public class AudioManager : MonoBehaviour
     }
     public void PlaySE(string name, AudioSource audiosource)
     {
-
         audiosource?.PlayOneShot(seList.FirstOrDefault(clip => clip.Name == name)?.Clip);
     }
     public void PlayBGM(string name, AudioSource audiosource)
